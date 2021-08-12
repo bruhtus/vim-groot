@@ -19,22 +19,17 @@ if &autochdir
 endif
 
 if exists('g:groot_autochdir')
-	function! s:groot_buffer()
-		if !exists('b:groot_enabled')
-			" change directory to file directory automatically
-			" almost the same as `set autochdir` but more flexible
-			silent! lcd %:p:h
-		else
-			unlet b:groot_enabled
-			silent! lcd %:p:h
-			call groot#toggle()
-		endif
-	endfunction
-
-	augroup GrootBuffer
-		autocmd!
-		autocmd BufEnter * call s:groot_buffer()
-	augroup END
+  augroup GrootBuffer
+    autocmd!
+    autocmd BufEnter *
+          \ if !exists('b:root_enabled') |
+          \   silent! lcd %:p:h          |
+          \ else                         |
+          \   unlet b:root_enabled       |
+          \   silent! lcd %:p:h          |
+          \   call root#toggle()         |
+          \ endif
+  augroup END
 endif
 
 command! Groot call groot#toggle()
