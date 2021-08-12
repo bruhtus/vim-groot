@@ -32,4 +32,4 @@ if !get(g:, 'groot_autochdir', 0)
   augroup END
 endif
 
-command! Groot call groot#toggle()
+nnoremap <silent> <Plug>(GrootToggle) :<C-u>call groot#toggle()<CR>
