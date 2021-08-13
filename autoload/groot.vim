@@ -33,3 +33,13 @@ function! groot#toggle()
 
 	endif
 endfunction
+
+function! groot#temp()
+  let l:root = systemlist('git rev-parse --show-toplevel')[0]
+
+  if v:shell_error
+    echo 'Not in git repo directory'
+  else
+    execute 'lcd ' . l:root
+  endif
+endfunction

@@ -33,3 +33,4 @@ if get(g:, 'groot_autochdir') == 1
 endif
 
 nnoremap <silent> <Plug>(GrootToggle) :<C-u>call groot#toggle()<CR>
+command! GrootTemp call groot#temp()

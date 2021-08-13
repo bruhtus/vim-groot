@@ -29,12 +29,22 @@ Groot provide a similar way to change your current working directory to the file
 let g:groot_autochdir = 1
 ```
 
-Groot only provide a toggle and doesn't change automatically to git root directory. It was by design, because automatically changing to git root directory can give trouble in large projects so you should turn it on yourself. Groot also doesn't provide any keybinding, you can make your own keybinding with the `<Plug>(GrootToggle)` mapping.
+Groot provide a toggle and doesn't change automatically to git root directory. It was by design, because automatically changing to git root directory can give trouble in large projects so you should turn it on yourself.
+
+Groot doesn't provide any keybinding, you can make your own keybinding with the `<Plug>(GrootToggle)` mapping.
 
 For example: <br>
 ```vim
 nmap <leader>n <Plug>(GrootToggle)
 ```
+
+But, Groot provide a `GrootTemp` command to give temporary access to git root directory which you can combine with your fuzzy finder or something else.
+
+For example, if you want to make a separate mapping for `fzf.vim` that use git root directory as current working directory, you can make a mapping like this:
+```vim
+nnoremap <leader>n :GrootTemp <Bar> Files<CR>
+```
+and after you exit `fzf.vim` window, the current working directory in your buffer still the same.
 
 ## FAQ
 
