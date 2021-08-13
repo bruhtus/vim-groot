@@ -22,7 +22,7 @@ if !exists('g:groot_autochdir')
   let g:groot_autochdir = 0
 endif
 
-if !get(g:, 'groot_autochdir', 0)
+if get(g:, 'groot_autochdir', 0)
   augroup GrootBuffer
     autocmd!
     autocmd BufEnter *
