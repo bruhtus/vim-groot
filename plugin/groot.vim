@@ -18,7 +18,11 @@ if &autochdir
 	set noautochdir
 endif
 
-if exists('g:groot_autochdir') && !get(g:, 'groot_autochdir', 0)
+if !exists('g:groot_autochdir')
+  let g:groot_autochdir = 0
+endif
+
+if !get(g:, 'groot_autochdir', 0)
   augroup GrootBuffer
     autocmd!
     autocmd BufEnter *
