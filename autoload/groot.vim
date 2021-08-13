@@ -18,10 +18,7 @@ function! groot#toggle()
     let l:root = systemlist('git rev-parse --show-toplevel')[0]
 
     if v:shell_error
-      if !exists('b:groot_first_time')
-        let b:groot_first_time = 1
-        echo 'Not in git repo directory'
-      endif
+      echo 'Not in git repo directory'
     else
       let b:groot_enabled = 1
       execute 'lcd ' . l:root
