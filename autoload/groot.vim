@@ -8,30 +8,30 @@
 " minimalist vim-rooter alternative for git repo
 
 function! groot#toggle()
-	if exists('b:groot_enabled')
-		unlet b:groot_enabled
-		unlet b:groot_first_time
-		execute 'lcd %:p:h'
-		echo 'Root directory disabled'
+  if exists('b:groot_enabled')
+    unlet b:groot_enabled
+    unlet b:groot_first_time
+    execute 'lcd %:p:h'
+    echo 'Root directory disabled'
 
-	else
-		let l:root = systemlist('git rev-parse --show-toplevel')[0]
+  else
+    let l:root = systemlist('git rev-parse --show-toplevel')[0]
 
-		if v:shell_error
-			if !exists('b:groot_first_time')
-				let b:groot_first_time = 1
-				echo 'Not in git repo directory'
-			endif
-		else
-			let b:groot_enabled = 1
-			execute 'lcd ' . l:root
-			if !exists('b:groot_first_time')
-				let b:groot_first_time = 1
-				echo 'Changed directory to: ' . l:root
-			endif
-		endif
+    if v:shell_error
+      if !exists('b:groot_first_time')
+        let b:groot_first_time = 1
+        echo 'Not in git repo directory'
+      endif
+    else
+      let b:groot_enabled = 1
+      execute 'lcd ' . l:root
+      if !exists('b:groot_first_time')
+        let b:groot_first_time = 1
+        echo 'Changed directory to: ' . l:root
+      endif
+    endif
 
-	endif
+  endif
 endfunction
 
 function! groot#temp()

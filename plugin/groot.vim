@@ -8,14 +8,14 @@
 " minimalist vim-rooter alternative for git repo
 
 if exists('g:loaded_groot')
-	finish
+  finish
 endif
 
 let g:loaded_groot = 1
 
 " doesn't support autochdir option
 if &autochdir
-	set noautochdir
+  set noautochdir
 endif
 
 if get(g:, 'groot_autochdir') == 1
