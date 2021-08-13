@@ -22,12 +22,12 @@ if get(g:, 'groot_autochdir') == 1
   augroup GrootBuffer
     autocmd!
     autocmd BufEnter *
-          \ if !exists('b:root_enabled') |
-          \   silent! lcd %:p:h          |
-          \ else                         |
-          \   unlet b:root_enabled       |
-          \   silent! lcd %:p:h          |
-          \   call root#toggle()         |
+          \ if !exists('b:groot_enabled') |
+          \   silent! lcd %:p:h           |
+          \ else                          |
+          \   unlet b:groot_enabled       |
+          \   silent! lcd %:p:h           |
+          \   call root#toggle()          |
           \ endif
   augroup END
 endif
