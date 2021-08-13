@@ -27,7 +27,7 @@ if get(g:, 'groot_autochdir') == 1
           \ else                          |
           \   unlet b:groot_enabled       |
           \   silent! lcd %:p:h           |
-          \   call root#toggle()          |
+          \   call groot#toggle()         |
           \ endif
   augroup END
 endif
